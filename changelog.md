@@ -9,11 +9,11 @@ tiny-IoC
 单纯的map，有get和put bean的功能
 
 
-## 2.step2-inject
-*step-2-container-register-and-get*
+## 2.step2-将bean创建放入工厂
+*step-2-abstract-beanfactory-and-do-bean-initilizing-in-it*
 
 1. 抽象beanfactory
 2. 将bean初始化放入beanfactory
 	
-3
-. xml
+## 2.step3-为bean注入属性
+*step-3-inject-bean-with-property*
