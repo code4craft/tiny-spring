@@ -1,4 +1,6 @@
-package us.codecraft.tinyioc;
+package us.codecraft.tinyioc.factory;
+
+import us.codecraft.tinyioc.BeanDefinition;
 
 /**
  * @author yihua.huang@dianping.com

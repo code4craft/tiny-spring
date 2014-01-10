@@ -1,6 +1,8 @@
 package us.codecraft.tinyioc;
 
 import org.junit.Test;
+import us.codecraft.tinyioc.factory.AutowireCapableBeanFactory;
+import us.codecraft.tinyioc.factory.BeanFactory;
 
 /**
  * @author yihua.huang@dianping.com
