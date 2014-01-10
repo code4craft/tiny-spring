@@ -2,6 +2,7 @@ package us.codecraft.tinyioc;
 
 /**
  * bean的内容及元数据，保存在BeanFactory中，包装bean的实体
+ * 
  * @author yihua.huang@dianping.com
  */
 public class BeanDefinition {
@@ -12,7 +13,7 @@ public class BeanDefinition {
 
 	private String beanClassName;
 
-    private PropertyValues propertyValues;
+	private PropertyValues propertyValues = new PropertyValues();
 
 	public BeanDefinition() {
 	}
@@ -46,11 +47,11 @@ public class BeanDefinition {
 		return bean;
 	}
 
-    public PropertyValues getPropertyValues() {
-        return propertyValues;
-    }
+	public PropertyValues getPropertyValues() {
+		return propertyValues;
+	}
 
-    public void setPropertyValues(PropertyValues propertyValues) {
-        this.propertyValues = propertyValues;
-    }
+	public void setPropertyValues(PropertyValues propertyValues) {
+		this.propertyValues = propertyValues;
+	}
 }

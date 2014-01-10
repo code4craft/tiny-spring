@@ -15,5 +15,8 @@ tiny-IoC
 1. 抽象beanfactory
 2. 将bean初始化放入beanfactory
 	
-## 2.step3-为bean注入属性
+## 3.step3-为bean注入属性
 *step-3-inject-bean-with-property*
+
+## 4.step4-读取xml配置来初始化bean
+*step-4-config-beanfactory-with-xml*
