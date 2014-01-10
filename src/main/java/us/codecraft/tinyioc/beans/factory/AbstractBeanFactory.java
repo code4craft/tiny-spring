@@ -1,6 +1,6 @@
-package us.codecraft.tinyioc.factory;
+package us.codecraft.tinyioc.beans.factory;
 
-import us.codecraft.tinyioc.BeanDefinition;
+import us.codecraft.tinyioc.beans.BeanDefinition;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +17,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		return beanDefinitionMap.get(name).getBean();
 	}
 
-	@Override
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
         Object bean = doCreateBean(beanDefinition);
         beanDefinition.setBean(bean);
