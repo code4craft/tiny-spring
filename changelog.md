@@ -1,4 +1,4 @@
-tiny-IoC
+tiny-spring
 =====
 
 步骤：
@@ -7,7 +7,6 @@ tiny-IoC
 *step-1-container-register-and-get*
 
 单纯的map，有get和put bean的功能
-
 
 ## 2.step2-将bean创建放入工厂
 *step-2-abstract-beanfactory-and-do-bean-initilizing-in-it*
@@ -20,3 +19,9 @@ tiny-IoC
 
 ## 4.step4-读取xml配置来初始化bean
 *step-4-config-beanfactory-with-xml*
+
+## 5.step5-为bean注入bean
+*step-5-inject-bean-to-bean*
+
+## 6.step6-ApplicationContext登场
+*step-6-invite-application-context*

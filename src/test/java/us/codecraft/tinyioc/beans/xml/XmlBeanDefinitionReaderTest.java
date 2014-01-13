@@ -1,9 +1,9 @@
-package us.codecraft.tinyioc.xml;
+package us.codecraft.tinyioc.beans.xml;
 
 import org.junit.Assert;
 import org.junit.Test;
-import us.codecraft.tinyioc.BeanDefinition;
-import us.codecraft.tinyioc.io.ResourceLoader;
+import us.codecraft.tinyioc.beans.BeanDefinition;
+import us.codecraft.tinyioc.beans.io.ResourceLoader;
 
 import java.util.Map;
 

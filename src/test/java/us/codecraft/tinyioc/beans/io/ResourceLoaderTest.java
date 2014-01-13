@@ -1,4 +1,4 @@
-package us.codecraft.tinyioc.io;
+package us.codecraft.tinyioc.beans.io;
 
 import org.junit.Assert;
 import org.junit.Test;

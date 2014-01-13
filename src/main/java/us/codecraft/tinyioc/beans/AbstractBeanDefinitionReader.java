@@ -1,6 +1,6 @@
-package us.codecraft.tinyioc;
+package us.codecraft.tinyioc.beans;
 
-import us.codecraft.tinyioc.io.ResourceLoader;
+import us.codecraft.tinyioc.beans.io.ResourceLoader;
 
 import java.util.HashMap;
 import java.util.Map;

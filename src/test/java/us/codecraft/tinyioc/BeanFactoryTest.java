@@ -1,12 +1,12 @@
 package us.codecraft.tinyioc;
 
-import org.junit.Test;
-import us.codecraft.tinyioc.factory.AbstractBeanFactory;
-import us.codecraft.tinyioc.factory.AutowireCapableBeanFactory;
-import us.codecraft.tinyioc.io.ResourceLoader;
-import us.codecraft.tinyioc.xml.XmlBeanDefinitionReader;
-
 import java.util.Map;
+import org.junit.Test;
+import us.codecraft.tinyioc.beans.BeanDefinition;
+import us.codecraft.tinyioc.beans.factory.AbstractBeanFactory;
+import us.codecraft.tinyioc.beans.factory.AutowireCapableBeanFactory;
+import us.codecraft.tinyioc.beans.io.ResourceLoader;
+import us.codecraft.tinyioc.beans.xml.XmlBeanDefinitionReader;
 
 /**
  * @author yihua.huang@dianping.com

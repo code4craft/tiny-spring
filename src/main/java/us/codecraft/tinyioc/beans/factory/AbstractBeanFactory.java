@@ -1,6 +1,6 @@
-package us.codecraft.tinyioc.factory;
+package us.codecraft.tinyioc.beans.factory;
 
-import us.codecraft.tinyioc.BeanDefinition;
+import us.codecraft.tinyioc.beans.BeanDefinition;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,7 +30,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		return bean;
 	}
 
-	@Override
 	public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
 		beanDefinitionMap.put(name, beanDefinition);
 		beanDefinitionNames.add(name);

@@ -1,4 +1,4 @@
-package us.codecraft.tinyioc;
+package us.codecraft.tinyioc.beans;
 
 /**
  * 从配置中读取BeanDefinitionReader

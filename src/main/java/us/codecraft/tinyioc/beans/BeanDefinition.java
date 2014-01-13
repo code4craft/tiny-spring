@@ -1,4 +1,4 @@
-package us.codecraft.tinyioc;
+package us.codecraft.tinyioc.beans;
 
 /**
  * bean的内容及元数据，保存在BeanFactory中，包装bean的实体

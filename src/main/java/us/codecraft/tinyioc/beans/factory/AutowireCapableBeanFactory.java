@@ -1,10 +1,9 @@
-package us.codecraft.tinyioc.factory;
-
-import us.codecraft.tinyioc.BeanDefinition;
-import us.codecraft.tinyioc.BeanReference;
-import us.codecraft.tinyioc.PropertyValue;
+package us.codecraft.tinyioc.beans.factory;
 
 import java.lang.reflect.Field;
+import us.codecraft.tinyioc.BeanReference;
+import us.codecraft.tinyioc.beans.BeanDefinition;
+import us.codecraft.tinyioc.beans.PropertyValue;
 
 /**
  * 可自动装配内容的BeanFactory
