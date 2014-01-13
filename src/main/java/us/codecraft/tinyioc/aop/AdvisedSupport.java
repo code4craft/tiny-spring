@@ -3,6 +3,7 @@ package us.codecraft.tinyioc.aop;
 import org.aopalliance.intercept.MethodInterceptor;
 
 /**
+ * 代理相关的元数据
  * @author yihua.huang@dianping.com
  */
 public class AdvisedSupport {
