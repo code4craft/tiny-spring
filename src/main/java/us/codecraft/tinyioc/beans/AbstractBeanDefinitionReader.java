@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 从配置中读取BeanDefinitionReader
+ * 从配置中读取BeanDefinition
  * 
  * @author yihua.huang@dianping.com
  */
