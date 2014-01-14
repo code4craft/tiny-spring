@@ -5,15 +5,23 @@ import org.aopalliance.aop.Advice;
 /**
  * @author yihua.huang@dianping.com
  */
-public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor{
+public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
-    @Override
-    public Advice getAdvice() {
-        return null;
+    private AspectJExpressionPointcut pointcut;
+
+    private Advice advice;
+
+    public void setExpression(String expression) {
+        this.pointcut.setExpression(expression);
     }
 
+	@Override
+	public Advice getAdvice() {
+		return advice;
+	}
+
     @Override
-    public Pointcut getPointcut() {
-        return null;
-    }
+	public Pointcut getPointcut() {
+		return pointcut;
+	}
 }

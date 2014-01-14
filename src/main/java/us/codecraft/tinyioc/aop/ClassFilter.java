@@ -5,5 +5,5 @@ package us.codecraft.tinyioc.aop;
  */
 public interface ClassFilter {
 
-    boolean matches(Class clazz);
+    boolean matches(Class targetClass);
 }
