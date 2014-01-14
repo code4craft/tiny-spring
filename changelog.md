@@ -146,4 +146,10 @@ helloWorldService.helloWorld();
 
 是不是非常熟悉？至此为止，我们的tiny-spring的IoC部分可说完工了。这部分的类、方法命名和作用，都是对应Spring中相应的组件。虽然代码量只有400多行，但是已经有了基本的IoC功能！
 
-# AOP
+# 第二部分：AOP及实现
+
+## 7.step7-使用JDK动态代理实现AOP织入
+	git checkout step-7-method-interceptor-by-jdk-dynamic-proxy
+
+
+## 8.step8-使用Aspectj管理切面
