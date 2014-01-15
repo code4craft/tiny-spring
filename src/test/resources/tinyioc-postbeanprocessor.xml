@@ -17,4 +17,7 @@
         <property name="outputService" ref="outputService"></property>
     </bean>
 
+    <bean id="beanInitializeLogger" class="us.codecraft.tinyioc.BeanInitializeLogger">
+    </bean>
+
 </beans>
