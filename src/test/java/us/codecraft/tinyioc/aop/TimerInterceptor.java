@@ -17,4 +17,5 @@ public class TimerInterceptor implements MethodInterceptor {
 				+ " nanoseconds.");
 		return proceed;
 	}
+
 }

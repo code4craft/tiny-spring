@@ -17,4 +17,15 @@
         <property name="outputService" ref="outputService"></property>
     </bean>
 
+    <bean id="timeInterceptor" class="us.codecraft.tinyioc.aop.TimerInterceptor"></bean>
+
+    <aop:config>
+        <aop:aspect id="aroundExample" ref="timeInterceptor">
+            <aop:pointcut id="timerPointcut" expression="execution( * *.*() )"></aop:pointcut>
+            <aop:around
+                    pointcut-ref="timerPointcut"
+                    method="doBasicProfiling"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>
