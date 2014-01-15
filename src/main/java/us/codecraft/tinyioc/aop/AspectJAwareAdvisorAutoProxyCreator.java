@@ -24,6 +24,9 @@ public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, B
 		if (bean instanceof AspectJExpressionPointcutAdvisor) {
 			return bean;
 		}
+        if (bean instanceof MethodInterceptor) {
+            return bean;
+        }
 		List<AspectJExpressionPointcutAdvisor> advisors = beanFactory
 				.getBeansForType(AspectJExpressionPointcutAdvisor.class);
 		for (AspectJExpressionPointcutAdvisor advisor : advisors) {
@@ -32,10 +35,10 @@ public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, B
 				advisedSupport.setMethodInterceptor((MethodInterceptor) advisor.getAdvice());
 				advisedSupport.setMethodMatcher(advisor.getPointcut().getMethodMatcher());
 
-				TargetSource targetSource = new TargetSource(bean, bean.getClass());
+				TargetSource targetSource = new TargetSource(bean, bean.getClass().getInterfaces());
 				advisedSupport.setTargetSource(targetSource);
 
-				return new JdkDynamicAopProxy(advisedSupport);
+				return new JdkDynamicAopProxy(advisedSupport).getProxy();
 			}
 		}
 		return bean;

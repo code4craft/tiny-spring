@@ -21,4 +21,5 @@ public class HelloWorldServiceImpl implements HelloWorldService {
     public void setOutputService(OutputService outputService) {
         this.outputService = outputService;
     }
+
 }
