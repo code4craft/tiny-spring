@@ -1,6 +1,7 @@
 package us.codecraft.tinyioc.beans.factory;
 
 import us.codecraft.tinyioc.BeanReference;
+import us.codecraft.tinyioc.aop.BeanFactoryAware;
 import us.codecraft.tinyioc.beans.BeanDefinition;
 import us.codecraft.tinyioc.beans.PropertyValue;
 
@@ -14,6 +15,9 @@ import java.lang.reflect.Field;
 public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 
 	protected void applyPropertyValues(Object bean, BeanDefinition mbd) throws Exception {
+        if (bean instanceof BeanFactoryAware){
+            ((BeanFactoryAware)bean).setBeanFactory(this);
+        }
 		for (PropertyValue propertyValue : mbd.getPropertyValues().getPropertyValues()) {
 			Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
 			declaredField.setAccessible(true);
