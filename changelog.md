@@ -280,3 +280,8 @@ BeanPostProcessor是BeanFactory提供的，在Bean初始化过程中进行扩展
 在这一步，我们还要定义一个工厂类`ProxyFactory`，用于根据TargetSource类型自动创建代理，这样就需要在调用者代码中去进行判断。
 
 另外我们实现了`Cglib2AopProxy`，使用方式和`JdkDynamicAopProxy`是完全相同的。
+
+*有一个细节是CGLib创建的代理是没有注入属性的，
+Spring的解决方式是：CGLib仅作代理，任何属性都保存在TargetSource中，使用MethodInterceptor=>TargetSource的方式进行调用。*
+
+至此，AOP部分完工。
