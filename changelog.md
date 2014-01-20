@@ -199,7 +199,6 @@ Spring的AOP只支持方法级别的调用，所以其实在AopProxy里，我们
 	}
 ```
 
-
 ## 8.step8-使用AspectJ管理切面
 	git checkout step-8-invite-pointcut-and-aspectj
 	
@@ -234,4 +233,50 @@ aspect PointObserving {
     }
 ```
 
-## 9.
+## 9.step9-将AOP融入Bean的创建过程
+	git checkout step-9-auto-create-aop-proxy
+	
+万事俱备，只欠东风！现在我们有了Pointcut和Weave技术，一个AOP已经算是完成了，但是它还没有结合到Spring中去。怎么进行结合呢？Spring给了一个巧妙的答案：使用`BeanPostProcessor`。
+
+BeanPostProcessor是BeanFactory提供的，在Bean初始化过程中进行扩展的接口。只要你的Bean实现了`BeanPostProcessor`接口，那么Spring在初始化时，会优先找到它们，并且在Bean的初始化过程中，调用这个接口，从而实现对BeanFactory核心无侵入的扩展。
+
+那么我们的AOP是怎么实现的呢？我们知道，在AOP的xml配置中，我们会写这样一句话：
+
+```xml
+<aop:aspectj-autoproxy/>
+```
+
+它其实相当于：
+
+```xml
+<bean id="autoProxyCreator" class="org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator"></bean>
+```
+
+`AspectJAwareAdvisorAutoProxyCreator`就是AspectJ方式实现织入的核心。它其实是一个BeanPostProcessor。在这里它会扫描所有Pointcut，并对bean做织入。
+
+为了简化xml配置，我在tiny-spring中直接使用Bean的方式，而不是用aop前缀进行配置：
+
+```xml
+    <bean id="autoProxyCreator" class="us.codecraft.tinyioc.aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+
+    <bean id="timeInterceptor" class="us.codecraft.tinyioc.aop.TimerInterceptor"></bean>
+
+    <bean id="aspectjAspect" class="us.codecraft.tinyioc.aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"></property>
+        <property name="expression" value="execution(* us.codecraft.tinyioc.*.*(..))"></property>
+    </bean>
+```
+
+`TimerInterceptor`实现了`MethodInterceptor`（实际上Spring中还有`Advice`这样一个角色，为了简单，就直接用MethodInterceptor了）。
+
+至此，一个AOP基本完工。
+
+
+## 10.step10-使用CGLib进行类的织入
+	git checkout step-10-invite-cglib-and-aopproxy-factory
+	
+前面的JDK动态代理只能对接口进行代理，对于类则无能为力。这里我们需要一些字节码操作技术。这方面大概有几种选择：`ASM`，`CGLib`和`javassist`，后两者是对`ASM`的封装。Spring中使用了CGLib。
+
+在这一步，我们还要定义一个工厂类`ProxyFactory`，用于根据TargetSource类型自动创建代理，这样就需要在调用者代码中去进行判断。
+
+另外我们实现了`Cglib2AopProxy`，使用方式和`JdkDynamicAopProxy`是完全相同的。
