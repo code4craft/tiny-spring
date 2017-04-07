@@ -275,7 +275,7 @@ BeanPostProcessor是BeanFactory提供的，在Bean初始化过程中进行扩展
 ## 10.step10-使用CGLib进行类的织入
 	git checkout step-10-invite-cglib-and-aopproxy-factory
 	
-前面的JDK动态代理只能对接口进行代理，对于类则无能为力。这里我们需要一些字节码操作技术。这方面大概有几种选择：`ASM`，`CGLib`和`javassist`，后两者是对`ASM`的封装。Spring中使用了CGLib。
+前面的JDK动态代理只能对实现了InvocationHandler的类进行代理，对于没有实现的类则无能为力。所以我们需要一些字节码操作技术。这方面大概有几种选择：`ASM`，`CGLib`和`javassist`，后两者是对`ASM`的封装。Spring中使用了CGLib。
 
 在这一步，我们还要定义一个工厂类`ProxyFactory`，用于根据TargetSource类型自动创建代理，这样就需要在调用者代码中去进行判断。
 
