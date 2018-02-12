@@ -18,8 +18,15 @@ tiny-spring
 `tiny-spring`是逐步进行构建的，里程碑版本我都使用了git tag来管理。例如，最开始的tag是`step-1-container-register-and-get`，那么可以使用
 
 	git checkout step-1-container-register-and-get
-	
+
 来获得这一版本。版本历史见[`changelog.md`](https://github.com/code4craft/tiny-spring/blob/master/changelog.md)。
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/code4craft/tiny-spring/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+## 下面是推广
+
+如果觉得代码理解有难度的，可以报名@方老司 的视频教程：
+
+[60分钟徒手撸出Spring框架:土法造炮篇](https://segmentfault.com/l/1500000013061317?d=be83d672744f2f15b77bb40795505e4b)
+
+[60分钟徒手撸出Spring框架:高仿版](https://segmentfault.com/l/1500000013110630?d=a09ac8198372f552dc68c572b2b38664)
