@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
     <bean id="outputService" class="us.codecraft.tinyioc.OutputServiceImpl">
-        <property name="helloWorldService" ref="helloWorldService"></property>
+        <!--<property name="helloWorldService" ref="helloWorldService"></property>-->
     </bean>
 
     <bean id="helloWorldService" class="us.codecraft.tinyioc.HelloWorldServiceImpl">
