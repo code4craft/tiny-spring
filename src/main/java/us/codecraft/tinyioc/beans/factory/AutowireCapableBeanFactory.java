@@ -26,18 +26,23 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 				value = getBean(beanReference.getName());
 			}
 
-			try {
-				Method declaredMethod = bean.getClass().getDeclaredMethod(
-						"set" + propertyValue.getName().substring(0, 1).toUpperCase()
-								+ propertyValue.getName().substring(1), value.getClass());
-				declaredMethod.setAccessible(true);
-
-				declaredMethod.invoke(bean, value);
-			} catch (NoSuchMethodException e) {
-				Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
-				declaredField.setAccessible(true);
-				declaredField.set(bean, value);
+			Method[] declaredMethods = bean.getClass().getDeclaredMethods();
+			boolean hasMethod = false;
+			for (Method declaredMethod : declaredMethods) {
+				if (declaredMethod.getName().equals("set"
+						+ propertyValue.getName().substring(0, 1).toUpperCase()
+						+ propertyValue.getName().substring(1))) {
+					declaredMethod.setAccessible(true);
+					declaredMethod.invoke(bean, value);
+					hasMethod = true;
+					break;
+				}
 			}
-		}
-	}
+            if (!hasMethod) {
+                Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
+                declaredField.setAccessible(true);
+                declaredField.set(bean, value);
+            }
+        }
+    }
 }
